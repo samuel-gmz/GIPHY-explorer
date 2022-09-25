@@ -6,9 +6,9 @@ let offset = 0
 
 // Lógica para Trending
 const obtenerTrending = async () => {
-  const respuesta = await fetch(`https://api.giphy.com/v1/gifs/trending?api_key=BImA4ZPw81pcgAbJsJ8ls8A78xp7yFm5&limit=9&offset=${offset}`)
+  const respuesta = await fetch(`https://api.giphy.com/v1/gifs/trending?api_key=BImA4ZPw81pcgAbJsJ8ls8A78xp7yFm5&limit=20&offset=${offset}`)
   const { data } = await respuesta.json()
-  offset += 9
+  offset += 20
   return data
 }
 
@@ -87,9 +87,9 @@ const searchGifs = e => {
 }
 
 const obtenerSearch = async (search) => { 
-  const respuesta = await fetch(`https://api.giphy.com/v1/gifs/search?api_key=BImA4ZPw81pcgAbJsJ8ls8A78xp7yFm5&q=${search}&limit=9&offset=${offset2}`)
+  const respuesta = await fetch(`https://api.giphy.com/v1/gifs/search?api_key=BImA4ZPw81pcgAbJsJ8ls8A78xp7yFm5&q=${search}&limit=20&offset=${offset2}`)
   const { data } = await respuesta.json()
-  offset2 += 9
+  offset2 += 20
   return data
 }
 

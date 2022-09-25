@@ -1,0 +1,62 @@
+h1 {
+    text-align: center;
+    margin-top: 45px;
+    font-family: 'Monoton', cursive;
+    font-weight: 400;
+    font-size: xxx-large;
+}
+
+#form1 {
+    position: fixed;
+    top: 0;
+    display: flex;
+    gap: 20px; 
+    height: 30px;
+    width: 500px;
+    padding: 5px 15px;
+    border-radius: 9px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #FFD700;
+    justify-content: center;
+}
+
+#form1 #search {
+    font-size: larger;
+}
+
+p {
+    text-align: center;
+    font-size: larger;
+    font-family: 'Varela Round', sans-serif;
+    font-weight: 400;
+}
+
+#ul {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+    padding: 0;
+    gap: 20px;
+}
+
+#ul li {
+    list-style: none;
+    font-size: larger;
+    font-family: 'Varela Round', sans-serif;
+    font-weight: 400;
+    margin-bottom: 40px;
+}
+
+#images {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+#images img {
+    width: 550px;
+    max-height: 500px;   
+}
