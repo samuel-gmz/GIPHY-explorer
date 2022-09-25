@@ -40,7 +40,13 @@ window.addEventListener('load', mainFunction)
 let offset2 = 0
 
 // El array que contendrá el texto de las búsquedas recientes
-let recent = []
+let recentSearches
+
+if (localStorage.recentSearches && localStorage.recentSearches != "") {
+  recentSearches = JSON.parse(localStorage.recentSearches)
+} else {
+  recentSearches = []
+}
 
 // Esta variable sirve para que cuando se llame a mainFunctionSearch desde observer.js pueda pasarle este valor
 // que contiene el texto ingresado por input y así pueda ejecutarse sin necesidad de un nuevo click en submit 
@@ -64,19 +70,19 @@ const searchGifs = e => {
 
 	const search = document.querySelector('#search').value 
 
-  if (recent.length > 2) {
-    recent.shift()
-    recent.push(search)
+  if (recentSearches.length > 2) {
+    recentSearches.shift()
+    recentSearches.push(search)
   } else {
-    recent.push(search)
+    recentSearches.push(search)
   }
     
-  localStorage.recent = JSON.stringify(recent)
+  localStorage.recentSearches = JSON.stringify(recentSearches)
 
   // Limpio el contenido de ul para que se dibuje nuevamente y no se sume al anterior
   ul.innerHTML = "" 
 
-  recent.forEach(element => { 
+  recentSearches.forEach(element => { 
     makeListItem(element, ul)
   })
 
@@ -110,16 +116,10 @@ const makeListItem = (text, parent) => {
   parent.appendChild(listItem)
 }
 
+recentSearches.forEach(element => {
+  makeListItem(element, ul)
+})
+
 const cleanHTML = () => { 
 	gifsBox.innerHTML = ""
 }
-
-// Intento de cargar desde el local storage la lista de busquedas recientes
-let recentSearches
-recentSearches = JSON.parse(localStorage.recent)
-const loadFromLocal = () => {
-  recentSearches.forEach(element => { 
-  makeListItem(element, ul)
-})}
-
-window.addEventListener('load', loadFromLocal)
